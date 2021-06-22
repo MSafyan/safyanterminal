@@ -1,0 +1,44 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<!-- include header -->
+<%- include('include/_header') %>
+  <!-- /include header -->
+
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+        <a href="/add-product" class="border-shadow">
+          <span class="text-gradient">New Faculty <i class="fas fa-user"></i></span>
+        </a>
+      </div>
+
+      <!-- form handling -->
+      <form action="/" method="POST">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Desciption</th>
+              <th>Rating</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% console.log(users) %>
+              <%- include('include/_show') %>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </main>
+  <!-- /Main Site -->
+
+
+  <!-- include footer -->
+  <%- include('include/_footer') %>
+    <!-- /include footer -->
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
