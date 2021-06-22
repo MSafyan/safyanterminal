@@ -19,7 +19,7 @@ require('./config/passport')(passport);
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
-// mongodb+srv://Safyan:qwertyasdf@cluster0-f9smh.mongodb.net/natrous?retryWrites=true&w=majority
+// mongodb+srv://Safyan:qwertyasdf@cluster0-f9smh.mongodb.net/natrous?retryWrites=true&w=majorityi
 // mongodb://localhost:27017/natours
 mongoose
   .connect(
@@ -75,6 +75,6 @@ app.get('/cart', services.cartRoutes)
 
 app.use('/', require('./routes/index.js'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORTw || 5000;
 
 app.listen(PORT, console.log(`Server running on  ${PORT}`));
