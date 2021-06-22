@@ -103,17 +103,46 @@ exports.updateFaculty = async(req, res, next) => {
   }
 }
 exports.addtocart= async(req, res, next) => {
+  // console.log(req.params.id)
   try {
-    const doc = await Faculty.findById(req.params.id);
+    const doc = await Product.findById(req.params.id);
+    const docs = await Product.find();
     if (!doc) {
       return res.send('No Document found with that Id');
     }
-    arr.push(req.params.id)
+    if(docs.length<=arr.length){
+      return res.redirect('/cart');
+    }
+    arr.push(doc)
     // i = arr.findIndex((obj => obj.id == req.params.id));
     // arr.splice(i,1);
+    console.log(arr)
     res.status(204).json({
       status: 'success',
-      data: 'Deleted successfully'
+      Faculties:arr
+    });
+  } catch (error) {
+    res.json(error)
+  
+  }
+}
+exports.cart= async(req, res, next) => {
+  var price =0;
+  try {
+
+    console.log('helo')
+    // i = arr.findIndex((obj => obj.id == req.params.id));
+    // arr.splice(i,1);
+    console.log(arr)
+    for (var i = 0; i < arr.length; i++) {
+      price = price+arr[i].price;
+        
+    }
+
+    res.status(200).json({
+      status: 'success',
+      Faculties:arr,
+      price
     });
   } catch (error) {
     res.json(error)

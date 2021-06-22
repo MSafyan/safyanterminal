@@ -15,6 +15,20 @@ exports.homeRoutes = (req, res) => {
     
 }
 
+exports.cartRoutes = (req, res) => {
+    // Make a get request to /api/users
+   axios.get(`https://safyanterminal.herokuapp.com/api/getcart`)
+   .then(function(response){
+            console.log(response.data.price)
+            res.render('cart', { users : response.data.Faculties,price:response.data.price });
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+
+    
+}
+
 exports.add_user = (req, res) =>{
     res.render('add_user');
 }

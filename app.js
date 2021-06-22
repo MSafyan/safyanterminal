@@ -71,6 +71,7 @@ app.use('/api/',require('./routes/fucultyRoute'));
 
 app.get('/add-product', services.add_user)
 app.get('/update-user', services.update_user)
+app.get('/cart', services.cartRoutes)
 
 app.use('/', require('./routes/index.js'));
 

@@ -10,7 +10,11 @@
       <%= users[i].description %>
     </td>
     <td>
-      <%= users[i].rating %>
+      <% for(var j=0; j < users[i].rating; j++) { %>
+        <span class="fa fa-star checked" style="color:orange;"></span>
+      <% } 
+      
+      %>
     </td>
     <td>
       <%= users[i].price %>
@@ -30,9 +34,11 @@
       <a href="/update-user?id=<%= users[i]._id%>" class="btn border-shadow update">
         <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
       </a>
+  
       <a class="btn border-shadow delete" data-id=<%=users[i]._id%> >
-        <span class="text-gradient"><i class="fas fa-times"></i></span>
+        <span class="text-gradient"> add to cart </span>
       </a>
+     
     </td>
   </tr>
 <% } %>

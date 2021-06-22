@@ -1,10 +1,31 @@
-<div>
-  cart 
-  <div>
-    <span>Name </span> <span>Price</span>
+<%- include('include/_header') %>
+
+<div class="container m-4">
+  <div class="filter">
+    <a href="/dashboard"><i class="fas fa-angle-double-left"></i> All Products</a>
   </div>
+  <h4>
+    cart 
+  </h4>
+<% for(var i=0; i < users.length; i++) { %>
+
+  <div>
+    <span>
+      <%= users[i].name %>
+    </span> 
+    <span>
+      <%= users[i].price %>
+    </span>
+  </div>
+<% } %>
+
   <div>
     <span>Price</span>
-    <span>Total</span>
+    <span><%= price %></span>
   </div>
 </div>
+  <a href="/" class="btn border-shadow">
+    <span class="text-gradient"> Place an order </span>
+  </a>
+
+<%- include('include/_footer') %>

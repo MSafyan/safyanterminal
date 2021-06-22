@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
   },
   rating: {
     type: Number,
-    required: true
+    required: true,
   },
   price: {
     type: Number,
